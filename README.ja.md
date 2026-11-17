@@ -149,7 +149,7 @@ magicalgirl-web doctor                                 # 接続診断
 
 設定は `.env`、`config/providers.yaml`、`config/router_policy.yaml` にあります。プロバイダーキーはすべて任意で、欠けているキーはそのプロバイダーをルーティングから外すだけです。
 
-環境変数、既定値、キャッシュ / スケジューリング、YAML の詳細は **[docs/configuration.md](docs/configuration.md)** を参照してください。
+環境変数、既定値、キャッシュ / スケジューリング、YAML の詳細は **[docs/configuration.ja.md](docs/configuration.ja.md)** を参照してください。
 
 ## マルチアカウント管理画面
 
@@ -160,7 +160,7 @@ magicalgirl-web doctor                                 # 接続診断
 docker compose --profile admin up -d
 ```
 
-`https://127.0.0.1:28443/admin/` を開き、`ORACLE_ADMIN_TOKEN` でログインします。アカウントモデル、キー管理、バックアップ、セキュリティは **[docs/multi-key-setup.md](docs/multi-key-setup.md)** を参照してください。
+`https://127.0.0.1:28443/admin/` を開き、`ORACLE_ADMIN_TOKEN` でログインします。アカウントモデル、キー管理、バックアップ、セキュリティは **[docs/multi-key-setup.ja.md](docs/multi-key-setup.ja.md)** を参照してください。
 
 ## セキュリティとプライバシー
 
@@ -171,11 +171,11 @@ docker compose --profile admin up -d
 - `402` / 支払い要求の応答はクォータ枯渇として扱います。有料超過を有効にするコードパスはありません。
 - テレメトリーはなく、設定したプロバイダーとセルフホストサービス以外への通信は行いません。
 
-1 台のマシン以外に公開する前に **[SECURITY.md](SECURITY.md)** を読んでください。
+1 台のマシン以外に公開する前に **[SECURITY.ja.md](SECURITY.ja.md)** を読んでください。
 
 ## デプロイと運用
 
-Docker Compose、任意の HTTPS 管理リスナー、SearXNG / Crawl4AI、VPN / リバースプロキシ、バックアップ、アップグレード、トラブルシューティングは **[docs/deployment.md](docs/deployment.md)** を参照してください。
+Docker Compose、任意の HTTPS 管理リスナー、SearXNG / Crawl4AI、VPN / リバースプロキシ、バックアップ、アップグレード、トラブルシューティングは **[docs/deployment.ja.md](docs/deployment.ja.md)** を参照してください。
 
 ## 制限と留意事項
 

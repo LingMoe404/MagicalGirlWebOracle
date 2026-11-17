@@ -149,7 +149,7 @@ magicalgirl-web doctor                                 # 连通性诊断
 
 配置来自 `.env`、`config/providers.yaml` 和 `config/router_policy.yaml`。所有供应商 Key 都是可选的；缺少某个 Key 只会让对应供应商退出路由。
 
-完整环境变量、默认值、缓存 / 调度选项和 YAML 说明见 **[docs/configuration.md](docs/configuration.md)**。
+完整环境变量、默认值、缓存 / 调度选项和 YAML 说明见 **[docs/configuration.zh-CN.md](docs/configuration.zh-CN.md)**。
 
 ## 多账户管理台
 
@@ -160,7 +160,7 @@ magicalgirl-web doctor                                 # 连通性诊断
 docker compose --profile admin up -d
 ```
 
-打开 `https://127.0.0.1:28443/admin/`，用 `ORACLE_ADMIN_TOKEN` 登录。账户模型、Key 管理、备份和安全说明见 **[docs/multi-key-setup.md](docs/multi-key-setup.md)**。
+打开 `https://127.0.0.1:28443/admin/`，用 `ORACLE_ADMIN_TOKEN` 登录。账户模型、Key 管理、备份和安全说明见 **[docs/multi-key-setup.zh-CN.md](docs/multi-key-setup.zh-CN.md)**。
 
 ## 安全与隐私
 
@@ -171,11 +171,11 @@ docker compose --profile admin up -d
 - `402` / 需要付款的响统一归类为额度耗尽；没有任何代码路径会开启付费超支。
 - 服务没有遥测，除你配置的供应商和自建服务外不发起网络请求。
 
-把服务暴露到单机之外前，请先阅读 **[SECURITY.md](SECURITY.md)**。
+把服务暴露到单机之外前，请先阅读 **[SECURITY.zh-CN.md](SECURITY.zh-CN.md)**。
 
 ## 部署与运维
 
-Docker Compose、独立 HTTPS 管理监听、SearXNG / Crawl4AI 配置、VPN / 反向代理、备份、升级和排障见 **[docs/deployment.md](docs/deployment.md)**。
+Docker Compose、独立 HTTPS 管理监听、SearXNG / Crawl4AI 配置、VPN / 反向代理、备份、升级和排障见 **[docs/deployment.zh-CN.md](docs/deployment.zh-CN.md)**。
 
 ## 限制与合规
 
