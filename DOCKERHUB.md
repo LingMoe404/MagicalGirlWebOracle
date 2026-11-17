@@ -1,3 +1,5 @@
+![MagicalGirlWebOracle](https://raw.githubusercontent.com/LingMoe404/MagicalGirlWebOracle/main/assets/icon/MagicalGirlWebOracle-160.png)
+
 # MagicalGirlWebOracle
 
 **Zero-cost web search, deep research, and page fetching for AI agents over MCP.**
