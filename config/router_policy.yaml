@@ -1,0 +1,55 @@
+# Router policy weights & mode definitions.
+# Scores are heuristic; router combines: query_fit + cost (0 preferred) + health
+# + remaining quota + latency + expiry_pressure, each normalized 0..1 then weighted.
+
+weights:
+  quality_fit: 0.35      # provider capability vs query type
+  cost: 0.20             # free/self-hosted first; cost_tier 0 beats 1 beats 2
+  remaining_quota: 0.20  # avoid exhausting monthly credits on easy queries
+  health: 0.15           # healthy > degraded > unavailable
+  latency: 0.05
+  expiry_pressure: 0.05  # late-month boost for renewing monthly quotas
+
+mode_definitions:
+  fast:
+    max_providers: 1
+    max_candidates: 6
+    rerank: false
+    prefer_providers: [you_mcp, searxng, exa]
+    description: "Quick factual lookups: versions, homepages, simple facts."
+  auto:
+    max_providers: 2
+    max_candidates: 10
+    rerank: false
+    prefer_providers: [you_mcp, searxng, exa, tavily]
+    description: "Default. Router infers query traits and picks accordingly."
+  high:
+    max_providers: 3
+    max_candidates: 14
+    rerank: true
+    prefer_providers: [exa, tavily, searxng, you_mcp]
+    description: "Hard technical / niche / cross-validation queries."
+  max:
+    max_providers: 4
+    max_candidates: 20
+    rerank: true
+    prefer_providers: [exa, tavily, searxng, you_mcp]
+    description: "Deep research. Multi-provider + fetch + rerank + evidence pack. Still zero-cost."
+
+chinese_routing:
+  # When a query is detected as zh / cn-internet related, boost these providers.
+  boosted_providers: [searxng]
+  boost_factor: 0.35          # added to searxng's quality_fit score
+  cross_validate_with: [exa, tavily]
+
+fetch_routing:
+  order: [light_http, jina_reader, crawl4ai, firecrawl]
+  # light_http first: static pages cost nothing.
+  # jina_reader: cleaner markdown (keyless low-rate fallback allowed).
+  # crawl4ai: self-hosted unlimited, JS pages.
+  # firecrawl: last resort for anti-bot / hard pages. Preserves credits.
+
+credits_guard:
+  # Never send a request we cannot prove stays inside free quota.
+  allow_paid_overage: false
+  unknown_quota_policy: skip   # skip | proceed

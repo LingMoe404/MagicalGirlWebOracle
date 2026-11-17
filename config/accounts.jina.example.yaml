@@ -1,0 +1,29 @@
+# Each Jina key is an independent wallet. No actual keys in YAML.
+version: 1
+accounts:
+  - {id: jina-wallet-a, provider: jina, label: Jina 钱包 A, owner_label: Google-A}
+  - {id: jina-wallet-b, provider: jina, label: Jina 钱包 B, owner_label: Google-B}
+pools:
+  - id: jina-free-a
+    account_id: jina-wallet-a
+    unit: tokens
+    window: {kind: unknown}
+    free_allowance_confirmed: false
+  - id: jina-free-b
+    account_id: jina-wallet-b
+    unit: tokens
+    window: {kind: unknown}
+    free_allowance_confirmed: false
+keys:
+  - id: jina-a
+    account_id: jina-wallet-a
+    label: Reader A
+    secret_env: JINA_API_KEY
+    pool_ids: [jina-free-a]
+    priority: 10
+  - id: jina-b
+    account_id: jina-wallet-b
+    label: Reader B
+    secret_env: JINA_API_KEY_SECOND
+    pool_ids: [jina-free-b]
+    priority: 20

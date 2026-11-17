@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "magicalgirl-web-oracle": {
+      "type": "streamable-http",
+      "url": "http://127.0.0.1:28288/mcp",
+      "headers": { "Authorization": "Bearer REPLACE_WITH_MCP_AUTH_TOKEN" }
+    }
+  }
+}

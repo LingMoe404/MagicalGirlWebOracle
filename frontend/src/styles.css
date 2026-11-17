@@ -1,0 +1,234 @@
+/* Layout-only styles. Colors, spacing, radii and typography come from
+   Fluent UI v9 theme tokens (CSS variables set by FluentProvider), so every
+   rule follows the active light/dark/high-contrast theme. */
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--colorNeutralBackground2);
+}
+
+.oracle-theme {
+  min-height: 100vh;
+  font-family: var(--fontFamilyBase);
+  background-color: var(--colorNeutralBackground2);
+  color: var(--colorNeutralForeground1);
+}
+
+.oracle-theme .muted { color: var(--colorNeutralForeground3); }
+.oracle-theme .attention { color: var(--colorStatusWarningForeground1); }
+
+.oracle-theme .language-switcher { width: 132px; flex-shrink: 0; }
+.oracle-theme .month-select { min-width: 150px; }
+.oracle-theme .panel-filters .fui-Field { flex-shrink: 0; }
+.oracle-theme .panel-filters .fui-Field__label { white-space: nowrap; }
+
+.oracle-theme .quota-notice {
+  background-color: var(--colorBrandBackground2);
+  border-color: var(--colorBrandStroke2);
+}
+
+.oracle-theme .alert-summary { margin-top: var(--spacingVerticalS); }
+.oracle-theme .refresh-spinner { margin-block: var(--spacingVerticalS); }
+
+/* Tables ---------------------------------------------------------------- */
+
+.oracle-theme .table-scroll {
+  overflow-x: auto;
+  border: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+  border-radius: var(--borderRadiusMedium);
+  background-color: var(--colorNeutralBackground1);
+}
+
+.oracle-theme .table-scroll table { min-width: 820px; table-layout: auto; }
+.oracle-theme .table-scroll thead { background-color: var(--colorNeutralBackground3); }
+.oracle-theme .table-scroll th {
+  font-weight: var(--fontWeightSemibold);
+  height: 44px;
+  white-space: nowrap;
+}
+.oracle-theme .table-scroll td { height: 56px; padding-block: 10px; }
+.oracle-theme .table-scroll td:first-child { min-width: 205px; }
+.oracle-theme .account-row { background-color: var(--colorNeutralBackground3); }
+
+.oracle-theme .account-name,
+.oracle-theme .key-name { display: flex; align-items: center; gap: 12px; }
+.oracle-theme .key-name { padding-left: 24px; }
+.oracle-theme .key-name > svg { color: var(--colorBrandForeground1); flex-shrink: 0; }
+.oracle-theme .key-name > div > span { overflow-wrap: anywhere; }
+
+.oracle-theme .pool-balance {
+  display: grid;
+  gap: 5px;
+  min-width: 160px;
+  max-width: 220px;
+}
+.oracle-theme .pool-balance + .pool-balance { margin-top: 12px; }
+
+.oracle-theme .table-note {
+  padding: 14px 18px;
+  margin-top: 24px;
+  line-height: var(--lineHeightBase300);
+  background-color: var(--colorNeutralBackground3);
+  border-radius: var(--borderRadiusMedium);
+}
+.oracle-theme .table-note > span + span { margin-top: 4px; }
+
+.oracle-theme .empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--colorNeutralForeground3);
+}
+.oracle-theme .log-note { display: block; margin: 16px 4px 0; }
+
+/* Key management -------------------------------------------------------- */
+
+.oracle-theme .management-toolbar,
+.oracle-theme .managed-account-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.oracle-theme .managed-account { margin-top: 24px; }
+.oracle-theme .managed-account-heading { justify-content: space-between; }
+.oracle-theme .key-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.oracle-theme .management-table table { min-width: 560px; }
+
+.oracle-theme .key-management .managed-account + .managed-account {
+  padding-top: var(--spacingVerticalL);
+  border-top: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+}
+
+/* Alerts ---------------------------------------------------------------- */
+
+.oracle-theme .alerts-panel { display: grid; gap: 16px; }
+.oracle-theme .alert-item [role="group"] { align-items: flex-start; }
+.oracle-theme .alert-item [role="group"] > div { min-width: 0; overflow-wrap: anywhere; }
+.oracle-theme .alert-item button { flex-shrink: 0; }
+
+/* Dialogs --------------------------------------------------------------- */
+
+.fui-DialogSurface .manage-fields {
+  display: grid;
+  gap: 18px;
+  padding: 8px 0 16px;
+}
+.fui-DialogSurface .manage-fields input { min-width: 0; }
+.fui-DialogSurface .manage-fields .muted { color: var(--colorNeutralForeground3); }
+
+/* Request traces -------------------------------------------------------- */
+
+.oracle-theme .request-traces { margin-bottom: 28px; }
+.oracle-theme .request-traces > h3 { margin: 0 0 8px; }
+.oracle-theme .request-traces > .muted { margin-bottom: 16px; }
+.oracle-theme .request-traces table { min-width: 550px; }
+.oracle-theme .request-traces td { overflow-wrap: anywhere; }
+
+.trace-dialog.fui-DialogSurface { width: min(760px, calc(100vw - 28px)); max-width: 760px; }
+.trace-dialog .fui-DialogContent { max-height: 70vh; overflow-y: auto; }
+.trace-id { overflow-wrap: anywhere; }
+
+.trace-timeline { padding-left: 22px; margin: 20px 0; }
+.trace-timeline li { padding: 0 0 14px 6px; }
+
+.trace-cost {
+  padding: 12px 0;
+  margin-bottom: 12px;
+  border-bottom: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+}
+
+/* Mobile ---------------------------------------------------------------- */
+
+.oracle-theme #mobile-accounts { display: none; }
+
+@media (max-width: 620px) {
+  .oracle-theme .fui-Toolbar,
+  .oracle-theme .fui-ToolbarGroup { flex-wrap: wrap; }
+  .oracle-theme .panel-card .fui-CardHeader__action {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .oracle-theme .panel-filters { width: 100%; }
+
+  .oracle-theme .sidebar [role="tab"] {
+    padding: 6px 8px;
+    min-height: 36px;
+    font-size: var(--fontSizeBase200);
+  }
+  .oracle-theme .sidebar [role="tab"] .fui-Tab__icon { display: none; }
+
+  .oracle-theme .desktop-accounts { display: none; }
+  .oracle-theme #mobile-accounts { display: block; }
+  .oracle-theme #mobile-accounts > div {
+    border-bottom: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+  }
+
+  .oracle-theme .mobile-account-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex: 1;
+    font-size: var(--fontSizeBase200);
+  }
+  .oracle-theme .mobile-balance { padding: 8px 0 16px; }
+  .oracle-theme .mobile-key {
+    padding: 14px 0;
+    border-top: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+  }
+  .oracle-theme .mobile-metrics {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 10px 0 6px;
+  }
+
+  .oracle-theme .management-table table { min-width: 0; table-layout: fixed; }
+  .oracle-theme .management-table th:first-child { width: 40%; }
+  .oracle-theme .management-table th:nth-child(2) { width: 25%; }
+  .oracle-theme .management-table td:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .oracle-theme .management-table th,
+  .oracle-theme .management-table td {
+    font-size: var(--fontSizeBase200);
+    padding-inline: 6px;
+  }
+  .oracle-theme .key-actions button { min-width: 0; padding: 4px 6px; }
+  .oracle-theme .key-actions .fui-Button__icon { display: none; }
+
+  .oracle-theme .alerts-panel .table-scroll table { min-width: 0; table-layout: fixed; }
+  .oracle-theme .alerts-panel .table-scroll td:first-child { min-width: 0; }
+  .oracle-theme .alerts-panel .table-scroll th:first-child { width: 38%; }
+  .oracle-theme .alerts-panel .table-scroll th:nth-child(2) { width: 18%; }
+  .oracle-theme .alerts-panel .table-scroll td,
+  .oracle-theme .alerts-panel .table-scroll th {
+    font-size: var(--fontSizeBase200);
+    padding-inline: 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .oracle-theme .request-traces table { min-width: 0; table-layout: fixed; }
+  .oracle-theme .request-traces th,
+  .oracle-theme .request-traces td {
+    padding: 8px 4px;
+    font-size: var(--fontSizeBase200);
+  }
+  .oracle-theme .request-traces th:first-child { width: 30%; }
+  .oracle-theme .request-traces button { min-width: 0; padding: 4px; }
+
+  .oracle-theme .table-note { margin-top: 18px; padding: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oracle-theme *,
+  .oracle-theme *::before,
+  .oracle-theme *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

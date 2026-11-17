@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest an improvement or a new provider/feature.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do, and what is missing today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior or API you would like.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Search routing
+        - Fetch / crawl
+        - Quota / multi-key
+        - Admin dashboard
+        - CLI / MCP
+        - Documentation
+        - Deployment
+        - Other
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Project constraints
+      options:
+        - label: The proposal keeps paid overage disabled and works within free quotas.
+          required: true

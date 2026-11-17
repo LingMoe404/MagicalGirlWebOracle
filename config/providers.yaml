@@ -1,0 +1,90 @@
+# Provider registry: free-quota metadata for every backend.
+# quota reset types: daily | monthly | calendar_month | one_time | unlimited | unknown
+# cost_tier: 0 = fully free/self-hosted, 1 = free-tier credits (renewing), 2 = one-time gift credit
+# NEVER put API keys in this file.
+
+providers:
+
+  searxng:
+    kind: search
+    quota:
+      type: unlimited
+      limit: null
+      renewing: true
+    cost_tier: 0
+    capabilities: [general, chinese, news, self_hosted]
+    notes: "Self-hosted SearXNG. Permanent free fallback. Prefer Chinese engine groups for CN topics."
+
+  crawl4ai:
+    kind: fetch
+    quota:
+      type: unlimited
+      limit: null
+      renewing: true
+    cost_tier: 0
+    capabilities: [fetch, js_render, crawl, screenshot, self_hosted]
+    notes: "Self-hosted. Unlimited browser-grade fetching. Use before Firecrawl."
+
+  you_mcp:
+    kind: search
+    quota:
+      type: daily
+      limit: 20
+      renewing: true
+    cost_tier: 1
+    capabilities: [general, news, fresh]
+    notes: "Official free keyless MCP profile (profile=free). Auto-skip when unreachable. Limit is an estimate; observed via health/quota tracking."
+
+  exa:
+    kind: search
+    quota:
+      type: monthly
+      limit: 10.0          # USD/month recurring free credit
+      unit: usd
+      renewing: true
+      one_time_bonus: 20.0 # signup gift credit (separate, not monthly)
+    cost_tier: 1
+    capabilities: [technical, semantic, github, hf, deep_search, contents]
+    notes: "Free tier is DOLLAR-denominated: $10/month + $20 one-time signup. Standard search $0.007/call, deep ~$0.012-0.015. Router tracks actual costDollars per call."
+
+  tavily:
+    kind: search
+    quota:
+      type: monthly
+      limit: 1000          # credits/month (Researcher free plan)
+      unit: credits
+      renewing: true
+    cost_tier: 1
+    capabilities: [general, advanced_search, extract, crawl, map, research]
+    notes: "Second retrieval system. basic=1 credit, advanced=2 credits. Free plan renews monthly. Official /usage API available for reconciliation."
+
+  firecrawl:
+    kind: fetch
+    quota:
+      type: monthly
+      limit: 500
+      unit: credits
+      renewing: true
+    cost_tier: 1
+    capabilities: [fetch, js_render, anti_bot, crawl, map]
+    notes: "Reserve for pages Crawl4AI cannot handle. Free plan renews monthly; official /v2/team/credit-usage API available for reconciliation."
+
+  jina_reader:
+    kind: fetch
+    quota:
+      type: one_time
+      limit: 1000
+      renewing: false
+    cost_tier: 2
+    capabilities: [reader, markdown_clean]
+    notes: "Signup gift credit, NOT monthly. Keyless r.jina.ai available at low rate (JINA_KEYLESS_FALLBACK)."
+
+  jina_reranker:
+    kind: rerank
+    quota:
+      type: one_time
+      limit: 1000
+      renewing: false
+    cost_tier: 2
+    capabilities: [rerank]
+    notes: "Signup gift credit. Used for HIGH/MAX aggregation rerank. Local heuristic fallback when exhausted."

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "magicalgirl-web-oracle": {
+      "command": "python",
+      "args": ["-m", "magicalgirl_web_oracle.mcp_server.server"]
+    }
+  }
+}

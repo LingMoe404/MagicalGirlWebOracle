@@ -1,0 +1,36 @@
+# Secret-free example; do not put actual API keys here.
+# Confirm each real account/organization's free USD budget before enabling calls.
+version: 1
+accounts:
+  - id: you-a
+    provider: you
+    label: You 主账户
+    owner_label: Google-A
+  - id: you-b
+    provider: you
+    label: You 第二账户
+    owner_label: Google-B
+pools:
+  - id: you-a-free
+    account_id: you-a
+    unit: usd
+    window: {kind: unknown}
+    free_allowance_confirmed: false
+  - id: you-b-free
+    account_id: you-b
+    unit: usd
+    window: {kind: unknown}
+    free_allowance_confirmed: false
+keys:
+  - id: you-a-primary
+    account_id: you-a
+    label: 主 Key
+    secret_env: YDC_API_KEY
+    pool_ids: [you-a-free]
+    priority: 10
+  - id: you-b-primary
+    account_id: you-b
+    label: 第二账户 Key
+    secret_env: YDC_API_KEY_SECOND
+    pool_ids: [you-b-free]
+    priority: 20

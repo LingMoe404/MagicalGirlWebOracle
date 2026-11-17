@@ -1,0 +1,66 @@
+# Shared Oracle for multiple machines (Docker deployment).
+#
+# Deploy this where SearXNG / Crawl4AI already run (or point at remote ones).
+# Every machine's Agent connects to http://<host>:28288/mcp and they all share
+# ONE quota ledger (data/usage.sqlite3), so free-tier usage is counted correctly
+# across machines.
+#
+# Set MCP_AUTH_TOKEN in .env so only your own machines can use the endpoint.
+services:
+  oracle:
+    build: .
+    image: ${ORACLE_IMAGE:-magicalgirl-web-oracle:0.1.0}
+    container_name: magicalgirl-web-oracle
+    env_file:
+      - .env
+    environment:
+      MCP_TRANSPORT: ${MCP_TRANSPORT:-streamable-http}
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: ${MCP_PORT:-28288}
+      MCP_PATH: ${MCP_PATH:-/mcp}
+      # SearXNG/Crawl4AI are reached over the host network here; the provider
+      # layer exempts these URLs from the outbound proxy.
+      SEARXNG_URL: ${SEARXNG_URL:-}
+      CRAWL4AI_URL: ${CRAWL4AI_URL:-}
+    ports:
+      # MCP_BIND_IP pins the published port to one host interface.
+      # 127.0.0.1 = local only (safe default); 0.0.0.0 = all interfaces.
+      - "${MCP_BIND_IP:-127.0.0.1}:${MCP_PORT:-28288}:${MCP_PORT:-28288}"
+    volumes:
+      - ./data:/app/data
+    # Lets the container reach SearXNG/Crawl4AI published on the host
+    # (works on Linux too, via host.docker.internal).
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:28288/healthz', timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # Optional HTTPS admin dashboard. Enable with:
+  #   docker compose --profile admin up -d
+  # Requires ORACLE_ADMIN_TOKEN and TLS cert/key files under data/private/tls/.
+  oracle-admin:
+    profiles: ["admin"]
+    build: .
+    image: ${ORACLE_IMAGE:-magicalgirl-web-oracle:0.1.0}
+    container_name: magicalgirl-web-oracle-admin
+    env_file:
+      - .env
+    entrypoint: ["python", "-m", "magicalgirl_web_oracle.admin.tls_server"]
+    ports:
+      - "${ORACLE_ADMIN_BIND_IP:-127.0.0.1}:${ORACLE_ADMIN_HTTPS_PORT:-28443}:${ORACLE_ADMIN_HTTPS_PORT:-28443}"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import ssl,urllib.request,sys; ctx=ssl._create_unverified_context(); sys.exit(0 if urllib.request.urlopen('https://127.0.0.1:28443/healthz', context=ctx, timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

@@ -1,0 +1,44 @@
+# Fixed, public sample set for reproducible retrieval-quality checks.
+# These are not user queries. Real runs consume provider free quota; use
+# `magicalgirl-web quality-eval --live --max-samples 6`.
+samples:
+  - id: python-asyncio-timeout
+    query: "Python asyncio wait_for timeout documentation"
+    language: en
+    expected_domains: ["docs.python.org"]
+    expected_keywords: ["asyncio", "timeout"]
+  - id: sqlite-wal-backup
+    query: "SQLite WAL mode backup API documentation"
+    language: en
+    expected_domains: ["sqlite.org"]
+    expected_keywords: ["backup", "WAL"]
+  - id: fastapi-websocket-auth
+    query: "FastAPI WebSocket authentication dependencies documentation"
+    language: en
+    expected_domains: ["fastapi.tiangolo.com"]
+    expected_keywords: ["WebSocket", "dependencies"]
+  - id: fluent-ui-button
+    query: "Fluent UI React v9 Button component documentation"
+    language: en
+    expected_domains: ["react.fluentui.dev", "fluentui.dev"]
+    expected_keywords: ["Button", "Fluent"]
+  - id: xiaomi-su7-specs
+    query: "小米 SU7 官方 参数 配置"
+    language: zh
+    expected_domains: ["xiaomiev.com"]
+    expected_keywords: ["SU7", "小米"]
+  - id: tokio-runtime
+    query: "Tokio async runtime official documentation"
+    language: en
+    expected_domains: ["tokio.rs"]
+    expected_keywords: ["Tokio", "runtime"]
+  - id: react-19-release
+    query: "React 19 official release notes"
+    language: en
+    expected_domains: ["react.dev"]
+    expected_keywords: ["React", "19"]
+  - id: china-railway-12306
+    query: "中国铁路 12306 官方 购票 网站"
+    language: zh
+    expected_domains: ["12306.cn"]
+    expected_keywords: ["12306", "铁路"]

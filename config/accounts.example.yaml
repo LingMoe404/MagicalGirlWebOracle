@@ -1,0 +1,44 @@
+# Copy to data/accounts.yaml. This file contains references, never real keys.
+# Set ORACLE_ACCOUNTS_FILE=data/accounts.yaml to opt in; restart after changes.
+# Both pools start unavailable. Confirm each account's CURRENT free allowance,
+# already-consumed balance, billing day and timezone before enabling a pool.
+version: 1
+accounts:
+  - id: tavily-a
+    provider: tavily
+    label: Tavily 主账户
+    owner_label: Google-A
+  - id: tavily-b
+    provider: tavily
+    label: Tavily 第二账户
+    owner_label: Google-B
+pools:
+  - id: tavily-a-monthly
+    account_id: tavily-a
+    unit: credits
+    limit: null
+    initial_used: null
+    free_allowance_confirmed: false
+    window:
+      kind: unknown
+  - id: tavily-b-monthly
+    account_id: tavily-b
+    unit: credits
+    limit: null
+    initial_used: null
+    free_allowance_confirmed: false
+    window:
+      kind: unknown
+keys:
+  - id: tavily-a-primary
+    account_id: tavily-a
+    label: 主账户 Key
+    secret_env: TAVILY_API_KEY
+    pool_ids: [tavily-a-monthly]
+    priority: 10
+  - id: tavily-b-primary
+    account_id: tavily-b
+    label: 第二账户 Key
+    secret_env: TAVILY_API_KEY_SECOND
+    pool_ids: [tavily-b-monthly]
+    priority: 20

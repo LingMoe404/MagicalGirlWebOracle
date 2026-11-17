@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    
+    
+    <style>
+      @keyframes mg-spin-weboracle { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes mg-spin-rev-weboracle { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+      @keyframes mg-pulse-weboracle { 0%, 100% { opacity: 0.45; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.06); } }
+      @keyframes mg-core-flash-weboracle { 0%, 100% { filter: brightness(1); opacity: 0.82; } 50% { filter: brightness(1.45) drop-shadow(0 0 8px #FFD54F); opacity: 1; } }
+      @keyframes mg-dash-flow-weboracle { to { stroke-dashoffset: -48; } }
+      @keyframes mg-eye-scan-weboracle { 0%, 100% { transform: translate(0px, 0px) scale(1); } 25% { transform: translate(-8px, -3px) scale(1.08); } 75% { transform: translate(8px, 3px) scale(1.08); } }
+      @keyframes mg-blink-weboracle { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.15; } }
+      @keyframes mg-float-up-weboracle { 0%, 100% { transform: translateY(0px); opacity: 0.9; } 50% { transform: translateY(-10px); opacity: 1; } }
+      @keyframes mg-alert-shake-weboracle { 0%, 100% { transform: rotate(0deg); } 20% { transform: rotate(-4deg); } 40% { transform: rotate(4deg); } 60% { transform: rotate(-3deg); } 80% { transform: rotate(3deg); } }
+      .mg-rot-cw { transform-origin: 256px 256px; animation: mg-spin-weboracle 10s linear infinite; }
+      .mg-rot-ccw { transform-origin: 256px 256px; animation: mg-spin-rev-weboracle 14s linear infinite; }
+      .mg-rot-local { transform-box: fill-box; transform-origin: center; animation: mg-spin-weboracle 8s linear infinite; }
+      .mg-pulse-glow { transform-box: fill-box; transform-origin: center; animation: mg-pulse-weboracle 2.2s ease-in-out infinite; }
+      .mg-pcore-active { animation: mg-core-flash-weboracle 1.4s ease-in-out infinite; }
+      .mg-stream-dash { animation: mg-dash-flow-weboracle 1.2s linear infinite; }
+      .mg-pupil-scan { transform-box: fill-box; transform-origin: center; animation: mg-eye-scan-weboracle 3.2s ease-in-out infinite; }
+      .mg-cursor-blink { animation: mg-blink-weboracle 0.9s infinite; }
+      .mg-float { animation: mg-float-up-weboracle 2.4s ease-in-out infinite; }
+      .mg-alert-wobble { transform-origin: 256px 256px; animation: mg-alert-shake-weboracle 0.7s ease-in-out infinite; }
+    </style>
+  
+    <linearGradient id="ap-gold-weboracle-512" x1="0.06" y1="0.04" x2="0.94" y2="0.96">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="18%" stop-color="#FFF4C8"/>
+      <stop offset="42%" stop-color="#F7C957"/>
+      <stop offset="68%" stop-color="#DC9318"/>
+      <stop offset="88%" stop-color="#9A5B00"/>
+      <stop offset="100%" stop-color="#F9D87C"/>
+    </linearGradient>
+    <linearGradient id="ap-gold-rim-weboracle-512" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.98"/>
+      <stop offset="50%" stop-color="#FFE082" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#9A5B00" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="ap-contact-weboracle-512" x="-25%" y="-25%" width="150%" height="155%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#080312" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#080312" flood-opacity="0.22"/>
+    </filter>
+    <filter id="ap-bloom-weboracle-512" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur1"/>
+      <feGaussianBlur stdDeviation="11" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <path id="sq-weboracle-512" d="M 256,0 C 438,0 512,74 512,256 C 512,438 438,512 256,512 C 74,512 0,438 0,256 C 0,74 74,0 256,0 Z"/>
+  
+    <linearGradient id="wo6-bg-512" x1="0.1" y1="0" x2="0.9" y2="1"><stop offset="0%" stop-color="#FCF9FF"/><stop offset="48%" stop-color="#EDE0FF"/><stop offset="100%" stop-color="#D3B8F8"/></linearGradient>
+    <radialGradient id="wo6-aura-512" cx="50%" cy="14%" r="72%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#8764B8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#5C2E91" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wo6-wing-512" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="58%" stop-color="#F3E5F5" stop-opacity="0.86"/>
+      <stop offset="100%" stop-color="#D1C4E9" stop-opacity="0.78"/>
+    </linearGradient>
+    <linearGradient id="wo6-wing-rim-512" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.98"/>
+      <stop offset="50%" stop-color="#EA80FC" stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#80D8FF" stop-opacity="0.75"/>
+    </linearGradient>
+    <radialGradient id="wo6-dial-512" cx="50%" cy="36%" r="65%">
+      <stop offset="0%" stop-color="#673AB7"/>
+      <stop offset="50%" stop-color="#311B92"/>
+      <stop offset="85%" stop-color="#140738"/>
+      <stop offset="100%" stop-color="#3D5AFE"/>
+    </radialGradient>
+    <linearGradient id="wo6-iris-512" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A148C"/>
+      <stop offset="40%" stop-color="#AA00FF"/>
+      <stop offset="76%" stop-color="#FF80AB"/>
+      <stop offset="100%" stop-color="#80D8FF"/>
+    </linearGradient>
+    <filter id="wo6-ambient-512" x="-20%" y="-20%" width="140%" height="145%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#1A0638" flood-opacity="0.28"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1A0638" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  
+      <use href="#sq-weboracle-512" fill="url(#wo6-bg-512)"/>
+      <use href="#sq-weboracle-512" fill="url(#wo6-aura-512)"/>
+      
+      <use href="#sq-weboracle-512" fill="none" stroke="#FFFFFF" stroke-width="5.5" opacity="0.9"/>
+    
+
+  
+  <g filter="url(#wo6-ambient-512)" transform="" class="">
+    <g fill="url(#wo6-wing-512)" stroke="url(#wo6-wing-rim-512)" stroke-width="3" stroke-linejoin="round">
+      <path d="M 176,204 C 134,178 96,152 74,126 C 60,152 70,188 104,214 C 76,208 62,222 74,246 C 84,266 108,278 132,284 C 108,286 102,304 120,318 C 140,332 170,328 196,314 Z"/>
+      <path d="M 336,204 C 378,178 416,152 438,126 C 452,152 442,188 408,214 C 436,208 450,222 438,246 C 428,266 404,278 380,284 C 404,286 410,304 392,318 C 372,332 342,328 316,314 Z"/>
+    </g>
+
+    
+    <g stroke="#9575CD" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+      <path d="M 98,178 C 122,196 146,214 170,228" fill="none"/>
+      <path d="M 100,240 C 122,252 144,260 166,266" fill="none"/>
+      <path d="M 414,178 C 390,196 366,214 342,228" fill="none"/>
+      <path d="M 412,240 C 390,252 368,260 346,266" fill="none"/>
+    </g>
+    
+
+    <circle cx="256" cy="102" r="20" fill="none" stroke="url(#ap-gold-weboracle-512)" stroke-width="6"/>
+    <rect x="242" y="116" width="28" height="15" rx="5" fill="url(#ap-gold-weboracle-512)" stroke="#FFFFFF" stroke-width="1.2"/>
+
+    <g filter="url(#ap-contact-weboracle-512)">
+      <circle cx="256" cy="258" r="134" fill="url(#wo6-dial-512)" stroke="url(#ap-gold-weboracle-512)" stroke-width="7.5"/>
+      <circle cx="256" cy="258" r="126" fill="none" stroke="#FFFFFF" stroke-width="1.4" opacity="0.38"/>
+    </g>
+
+    <g transform="translate(256, 258)" stroke="#B388FF" stroke-width="1.5" fill="none" opacity="0.34">
+      <circle cx="0" cy="0" r="108"/>
+      <ellipse cx="0" cy="0" rx="56" ry="108"/>
+      <ellipse cx="0" cy="0" rx="108" ry="48"/>
+      
+      <line x1="-108" y1="0" x2="108" y2="0" stroke-dasharray="4 6"/>
+      <line x1="0" y1="-108" x2="0" y2="108" stroke-dasharray="4 6"/>
+      
+    </g>
+
+    <!-- MCP 三大源节点数据流动画 (Active 态下持续向中心瞳孔传输信号) -->
+    <g transform="translate(256, 258)">
+      
+      <path d="M -72,-68 Q -32,-20 0,0" fill="none" stroke="#80D8FF" stroke-width="3.5" stroke-dasharray="6 6" opacity="0.92" class="mg-stream-dash"/>
+      <path d="M 78,-56 Q 36,-15 0,0" fill="none" stroke="#FF80AB" stroke-width="3.5" stroke-dasharray="6 6" opacity="0.92" class="mg-stream-dash"/>
+      <path d="M 52,82 Q 20,40 0,0" fill="none" stroke="url(#ap-gold-weboracle-512)" stroke-width="3.5" stroke-dasharray="6 6" opacity="0.92" class="mg-stream-dash"/>
+      
+      <circle cx="-72" cy="-68" r="7.5" fill="#80D8FF" stroke="#FFFFFF" stroke-width="2" class="mg-pulse-glow"/>
+      <circle cx="78" cy="-56" r="7.5" fill="#FF80AB" stroke="#FFFFFF" stroke-width="2" class="mg-pulse-glow"/>
+      <circle cx="52" cy="82" r="7.5" fill="url(#ap-gold-weboracle-512)" stroke="#FFFFFF" stroke-width="2" class="mg-pulse-glow"/>
+    </g>
+
+    <path d="M 130,258 A 126,126 0 0,1 382,258 C 382,196 324,172 256,172 C 188,172 130,196 130,258 Z" fill="#FFFFFF" opacity="0.15"/>
+    <path d="M 164,348 A 126,126 0 0,0 348,348 C 312,370 200,370 164,348 Z" fill="#EA80FC" opacity="0.28"/>
+
+    <!-- 全视美瞳 (Active 态下瞳孔星芒智能左右扫描与缩放对焦) -->
+    <g transform="">
+      <path d="M 164,258 C 210,206 302,206 348,258 C 302,310 210,310 164,258 Z" fill="#12002B" opacity="0.7"/>
+      <circle cx="256" cy="258" r="46" fill="url(#wo6-iris-512)" stroke="url(#ap-gold-weboracle-512)" stroke-width="3"/>
+      <circle cx="256" cy="258" r="35" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="1.5 6" opacity="0.38" class="mg-rot-local"/>
+      <path d="M 218,272 A 39,39 0 0,0 294,272 A 39,26 0 0,1 218,272 Z" fill="#84FFFF" opacity="0.78"/>
+
+      <g class="mg-pupil-scan">
+        <circle cx="256" cy="258" r="19" fill="#12002B"/>
+        <path d="M 256,224 C 259,246 264,251 286,258 C 264,265 259,270 256,292 C 253,270 248,265 226,258 C 248,251 253,246 256,224 Z" fill="#FFFFFF" filter="url(#ap-bloom-weboracle-512)"/>
+      </g>
+
+      <ellipse cx="230" cy="236" rx="11" ry="6.8" transform="rotate(-25 230 236)" fill="#FFFFFF"/>
+      <circle cx="278" cy="276" r="5.2" fill="#FFFFFF" opacity="0.95"/>
+
+      <path d="M 160,260 C 206,202 306,202 352,260" fill="none" stroke="#FFFFFF" stroke-width="6.2" stroke-linecap="round"/>
+      <path d="M 176,243 L 158,231" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"/>
+      <path d="M 336,243 L 354,231" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"/>
+      <path d="M 176,268 C 216,308 296,308 336,268" fill="none" stroke="url(#ap-gold-weboracle-512)" stroke-width="3.8" stroke-linecap="round"/>
+    </g>
+    
+          <g transform="">
+            <circle cx="256" cy="258" r="60" pathLength="100" fill="none" stroke="#84FFFF" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="76 100" transform="rotate(-90 256 258)" filter="url(#ap-bloom-weboracle-512)"/>
+            <path d="M 256,258 L 152.2,251.5" stroke="#84FFFF" stroke-width="2" opacity="0.6"/>
+          </g>
+  </g>
+  
+  
+</svg>
