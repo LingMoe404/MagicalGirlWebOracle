@@ -3,8 +3,8 @@
 ![MagicalGirlWebOracle icon](https://raw.githubusercontent.com/LingMoe404/MagicalGirlWebOracle/main/assets/icon/MagicalGirlWebOracle.png)
 
 [![CI](https://github.com/LingMoe404/MagicalGirlWebOracle/actions/workflows/ci.yml/badge.svg)](https://github.com/LingMoe404/MagicalGirlWebOracle/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/magicalgirl-web-oracle)](https://pypi.org/project/magicalgirl-web-oracle/)
-[![Docker Hub](https://img.shields.io/docker/v/lingmoe404/magicalgirl-web-oracle?label=docker)](https://hub.docker.com/r/lingmoe404/magicalgirl-web-oracle)
+[![PyPI](https://img.shields.io/pypi/v/magicalgirl-web-oracle?logo=pypi&logoColor=white&v=1)](https://pypi.org/project/magicalgirl-web-oracle/)
+[![Docker Hub](https://img.shields.io/docker/v/lingmoe404/magicalgirl-web-oracle?label=docker&logo=docker&logoColor=white&v=1)](https://hub.docker.com/r/lingmoe404/magicalgirl-web-oracle)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 
